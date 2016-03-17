@@ -15,7 +15,7 @@ function gitday {
   NC='\033[0m'
 
   if [ "$1" = "-h" ] || [ "$1" = "--help" ]; then
-      echo "white date param: dd-mm-yyyy"
+      echo "Date param: dd-mm-yyyy"
       return
   else
     logger
