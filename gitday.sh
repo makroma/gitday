@@ -19,23 +19,22 @@ function gitday {
       return
   else
     logger
-  fi
-
-  while IFS= read -r -s ; do
-    if [[ $REPLY = "" ]]; then
-      if [[ $DAY -lt 31 ]]; then
-        ((DAY=DAY+1))
-        logger
-      elif [[ $DAY -eq 31 ]]; then
-        DAY=1
-        ((MONTH=MONTH+1))
-        logger
-      elif [[ $DAY -eq 31 && $MONTH -eq 12 ]]; then
-        DAY=1
-        MONTH=1
-        ((YEAR=YEAR+1))
-        logger
+    while IFS= read -r -s ; do
+      if [[ $REPLY = "" ]]; then
+        if [[ $DAY -lt 31 ]]; then
+          ((DAY=DAY+1))
+          logger
+        elif [[ $DAY -eq 31 ]]; then
+          DAY=1
+          ((MONTH=MONTH+1))
+          logger
+        elif [[ $DAY -eq 31 && $MONTH -eq 12 ]]; then
+          DAY=1
+          MONTH=1
+          ((YEAR=YEAR+1))
+          logger
+        fi
       fi
-    fi
-  done
+    done
+  fi
 }
