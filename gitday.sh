@@ -14,6 +14,12 @@ function gitday {
   ORANGE='\033[0;33m'
   NC='\033[0m'
 
+  if [[ "$1" = "" ]]; then
+    DAY=$(date "+%d")
+    MONTH=$(date "+%m")
+    YEAR=$(date "+%Y")
+  fi
+
   if [ "$1" = "-h" ] || [ "$1" = "--help" ]; then
       echo "Date param: dd-mm-yyyy"
       return
